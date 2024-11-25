@@ -15,11 +15,24 @@
   visibility: visible;
 }
 
+.modal__label {
+  /* padding-top: 24px; */
+}
+
 .modal__title {
   margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  padding-bottom: 24px;
 }
 
 .modal__close {
+  background-image: url(../../assets/close.svg);
+  background-repeat: no-repeat;
+  border: none;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
   position: absolute;
   top: 20px;
   right: 28px;
@@ -27,10 +40,13 @@
 
 .modal__content {
   max-width: 496px;
+  max-height: 436px;
   width: 100%;
+  height: 100%;
   background-color: #fff;
   position: relative;
   padding: 28px 28px 36px;
+  border-radius: 20px;
   box-sizing: border-box;
 }
 
@@ -38,6 +54,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 24px;
+}
+
+.modal__legend {
+  padding-bottom: 12px;
 }
 
 .modal__radio-btn {
@@ -47,6 +68,27 @@
   flex-direction: column;
 }
 
+.modal__label_type_radio {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 8px;
+}
+
 .modal__input {
   display: block;
+}
+
+.modal__submit {
+  width: 124px;
+  height: 36px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  /* margin-top: 26px; */
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700px;
+  justify-content: center;
+  border: none;
 }

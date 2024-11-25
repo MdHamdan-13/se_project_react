@@ -14,7 +14,7 @@ function ModalWithForm({
       <div className="modal__content">
         <h2 className="modal__title">{title}</h2>
         <button onClick={closeModal} type="button" className="modal__close">
-          Close
+          {/* Close */}
         </button>
         <form className="modal__form">
           {children}
