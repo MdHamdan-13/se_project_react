@@ -6,11 +6,29 @@
 }
 
 .card__name {
+  display: flex;
   position: absolute;
+  width: 73px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  line-height: 20px;
   top: 15px;
   margin: 0;
+  padding: 2px 12px;
 }
 
 .card__image {
   width: 100%;
+  border-radius: 20px;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+}
+
+.cards__text {
+  font-size: 20px;
+  line-height: 24.8px;
 }
