@@ -15,15 +15,17 @@
   visibility: visible;
 }
 
-.modal__label {
-  /* padding-top: 24px; */
-}
+/* .modal__label {
+  padding-top: 24px;
+} */
 
 .modal__title {
   margin: 0;
   font-size: 16px;
   line-height: 20px;
   padding-bottom: 24px;
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  font-weight: 700;
 }
 
 .modal__close {
@@ -55,6 +57,8 @@
   flex-direction: column;
   width: 100%;
   gap: 24px;
+  font-family: "CabinetGrotesk-Medium", sans-serif;
+  font-weight: 700;
 }
 
 .modal__legend {
