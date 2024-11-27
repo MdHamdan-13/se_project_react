@@ -36,7 +36,7 @@
   margin-bottom: 32px;
 }
 
-/* .modal__close {
+.modal__close {
   background-image: url(../../assets/close.svg);
   background-repeat: no-repeat;
   border: none;
@@ -46,4 +46,4 @@
   position: absolute;
   top: 20px;
   right: 28px;
-} */
+}
