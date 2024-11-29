@@ -39,6 +39,7 @@
   position: absolute;
   top: 20px;
   right: 28px;
+  cursor: pointer;
 }
 
 .modal__content {
@@ -106,7 +107,17 @@
   color: #fff;
   font-size: 16px;
   line-height: 20px;
-  font-weight: 700px;
-  justify-content: center;
+  font-weight: 700;
+  /* justify-content: center; */
   border: none;
+  cursor: pointer;
 }
+
+.modal__submit:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: ease-in 0.3s;
+}
+
+/* .modal__submit:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.3);
+} */
