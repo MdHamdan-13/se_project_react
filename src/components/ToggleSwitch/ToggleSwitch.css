@@ -1,0 +1,15 @@
+.switch {
+  display: flex;
+  position: relative;
+  margin-left: auto;
+}
+
+.switch__checkBox {
+  border-radius: 20px;
+  border: 2px solid black;
+  width: 56px;
+  height: 28px;
+  appearance: none;
+  position: relative;
+  overflow: hidden;
+}
