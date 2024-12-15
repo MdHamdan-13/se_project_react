@@ -9,12 +9,15 @@
 
 .switch__checkBox {
   border-radius: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(126, 126, 126, 1);
   width: 56px;
   height: 28px;
   appearance: none;
-  /* position: relative; */
   overflow: hidden;
+}
+
+.switch__checkBox:hover {
+  border-color: rgba(0, 0, 0, 1);
 }
 
 .switch__slider {
@@ -26,14 +29,26 @@
   text-align: center;
   cursor: pointer;
   position: absolute;
+  transition: transform 0.5s ease-in-out;
 }
 
 .switch__slider-F {
   left: 0;
+
+  transform: translateX(0);
+}
+
+.switch__slider-F:hover {
+  translate: 2px;
 }
 
 .switch__slider-C {
   left: 28px;
+  transform: translateX(2px);
+}
+
+.switch__slider-C:hover {
+  translate: -2px;
 }
 
 .switch__temp-F {
