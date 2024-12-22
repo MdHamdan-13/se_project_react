@@ -7,7 +7,7 @@ function ItemModal({ activeModal, item, closeModal }) {
         <button onClick={closeModal} type="button" className="modal__close">
           {/* Close */}
         </button>
-        <img src={item.link} alt={item.name} className="modal__image" />
+        <img src={item.imageUrl} alt={item.name} className="modal__image" />
         <div className="modal__context">
           <h2 className="modal__caption">{item.name}</h2>
           <p className="modal__weather">Weather: {item.weather}</p>
