@@ -10,6 +10,7 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import { getItems } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -20,6 +21,7 @@ function App() {
   const [activeModal, setActiveModal] = useState(""); //turn of if needed
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState([]);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -52,6 +54,15 @@ function App() {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        // console.log(data);
+        setClothingItems(data);
+      })
+      .catch(console.error);
+  }, []);
+
   // console.log(currentTemperatureUnit);
 
   return (
@@ -61,7 +72,11 @@ function App() {
       >
         <div className="page__content">
           <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-          <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+          <Main
+            weatherData={weatherData}
+            handleCardClick={handleCardClick}
+            clothingItems={clothingItems}
+          />
           <Footer />
         </div>
         <AddItemModal
