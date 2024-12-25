@@ -12,7 +12,8 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { getItems } from "../../utils/api";
+// import { getItems, addItems } from "../../utils/api";
+import api from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -39,13 +40,30 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  const onAddItem = (values) => {
-    // console.log(values);
-    setClothingItems([values, ...clothingItems]);
-  };
-
   const closeModal = () => {
     setActiveModal("");
+  };
+
+  const onAddItem = ({ name, imageUrl, weather }) => {
+    // console.log(name, imageUrl, weather);
+    // setClothingItems([values, ...clothingItems]);
+    api
+      .addItems(name, imageUrl, weather)
+      .then((values) => {
+        setClothingItems([values, ...clothingItems]);
+        closeModal();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const onDeleteItem = (id) => {
+    api
+      .deleteItems(id)
+      .then(() => {
+        setClothingItems(clothingItems.filter((item) => item._id !== id));
+        closeModal();
+      })
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
@@ -58,7 +76,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    getItems()
+    api
+      .getItems()
       .then((data) => {
         // console.log(data);
         setClothingItems(data);
@@ -92,6 +111,7 @@ function App() {
                 <Profile
                   handleCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleAddClick={handleAddClick}
                 />
               }
             />
@@ -109,6 +129,7 @@ function App() {
           activeModal={activeModal}
           item={selectedCard}
           closeModal={closeModal}
+          onDeleteItem={onDeleteItem}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>

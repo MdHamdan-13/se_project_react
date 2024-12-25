@@ -36,6 +36,20 @@
   margin-bottom: 32px;
 }
 
+.modal__delete-btn {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(255, 77, 0, 1);
+  background-color: transparent;
+  border: none;
+  position: relative;
+  left: 365px;
+  bottom: 90px;
+  cursor: pointer;
+}
+
 .modal__close {
   background-image: url(../../assets/close.svg);
   background-repeat: no-repeat;
