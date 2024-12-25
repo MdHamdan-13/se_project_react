@@ -4,8 +4,8 @@ import "./SideBar.css";
 function SideBar() {
   return (
     <div className="sidebar">
-      <img src={avatar} alt="Profile Picture" className="sidebar__image" />
-      <p className="sidebar__username">User name</p>
+      <img src={avatar} alt="Terrence Tegegne" className="sidebar__image" />
+      <p className="sidebar__username">Terrence Tegegne</p>
     </div>
   );
 }
