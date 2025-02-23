@@ -3,8 +3,11 @@ import logo from "../../assets/header-logo.svg";
 import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwith";
 import { Link } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 
 function Header({ handleAddClick, weatherData, isLoggedIn }) {
+  const currentUser = useContext(CurrentUserContext);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -21,6 +24,7 @@ function Header({ handleAddClick, weatherData, isLoggedIn }) {
 
       <ToggleSwitch />
 
+      {/* add isLoggedIn to the profile */}
       <button
         onClick={handleAddClick}
         type="button"
