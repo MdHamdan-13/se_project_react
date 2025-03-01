@@ -40,6 +40,14 @@ function App() {
     setActiveModal("add-garment");
   };
 
+  const handleLoginClick = () => {
+    setActiveModal("login");
+  };
+
+  const handleRegisterClick = () => {
+    setActiveModal("register");
+  };
+
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -141,6 +149,8 @@ function App() {
           <div className="page__content">
             <Header
               handleAddClick={handleAddClick}
+              handleLoginClick={handleLoginClick}
+              handleRegistrationClick={handleRegisterClick}
               weatherData={weatherData}
               isLoggedIn={isLoggedIn}
             />
