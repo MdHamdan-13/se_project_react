@@ -25,19 +25,43 @@ function Header({ handleAddClick, weatherData, isLoggedIn }) {
       <ToggleSwitch />
 
       {/* add isLoggedIn to the profile */}
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
-      >
-        + Add clothes
-      </button>
-      <Link to="/profile" className="header__link">
-        <div className="header__user-container">
-          <p className="header__username">Terrence Tegegne</p>
-          <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
-        </div>
-      </Link>
+
+      {isLoggedIn ? (
+        <>
+          <button
+            onClick={handleAddClick}
+            type="button"
+            className="header__add-clothes-btn"
+          >
+            + Add clothes
+          </button>
+          <Link to="/profile" className="header__link">
+            <div className="header__user-container">
+              <p className="header__username">{currentUser.name}</p>
+              {currentUser.avatar ? (
+                <img
+                  src={currentUser.avatar}
+                  alt={currentUser.name}
+                  className="header__avatar"
+                />
+              ) : (
+                <div className="header__avatar-placeholder">
+                  {currentUser.name.charAt(0).toUpperCase()}
+                </div>
+              )}
+            </div>
+          </Link>
+        </>
+      ) : (
+        <>
+          <Link to="/signup" className="header__signup">
+            Sign Up
+          </Link>{" "}
+          <Link to="/login" className="header__login">
+            Log In
+          </Link>
+        </> //Might need to create a path to profile once user log in
+      )}
     </header>
   );
 }

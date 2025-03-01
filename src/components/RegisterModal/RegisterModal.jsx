@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import "./RegisterModal.css";
+import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ isOpen, closeModal }) => {
+const RegisterModal = ({ handleRegistration, isOpen, closeModal }) => {
   const [signUpData, setSignUpData] = useState({
     email: "",
     password: "",
@@ -22,20 +23,35 @@ const RegisterModal = ({ isOpen, closeModal }) => {
   // Need to call once a handleRegistration has been completed.
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleRegistration(signUpData);
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setSignUpData({
+        email: "",
+        password: "",
+        name: "",
+        avatar: "",
+      });
+    }
+  }, [isOpen]);
 
   return (
     <ModalWithForm
-      title="Register"
+      title="Sign Up"
       buttonText={"Sign Up"}
-      // isOpen={handleChange}
+      isOpen={isOpen}
       onSubmit={handleSubmit}
+      closeModal={closeModal}
     >
       <label htmlFor="email" className="modal__label">
         Email*{" "}
         <input
           type="email"
           id="email"
+          name="email"
+          className="modal__input"
           value={signUpData.email}
           onChange={handleChange}
           placeholder="Email"
@@ -48,6 +64,8 @@ const RegisterModal = ({ isOpen, closeModal }) => {
         <input
           type="password"
           id="password"
+          name="password"
+          className="modal__input"
           value={signUpData.password}
           onChange={handleChange}
           placeholder="Password"
@@ -60,6 +78,8 @@ const RegisterModal = ({ isOpen, closeModal }) => {
         <input
           type="text"
           id="name"
+          name="name"
+          className="modal__input"
           value={signUpData.name}
           onChange={handleChange}
           placeholder="Name"
@@ -72,6 +92,8 @@ const RegisterModal = ({ isOpen, closeModal }) => {
         <input
           type="url"
           id="avatar"
+          name="avatar"
+          className="modal__input"
           value={signUpData.avatar}
           onChange={handleChange}
           placeholder="Avatar URL"

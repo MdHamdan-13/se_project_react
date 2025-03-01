@@ -61,6 +61,10 @@ function App() {
   };
 
   const handleLogin = ({ email, password }) => {
+    if (!email || !password) {
+      return;
+    }
+
     auth
       .login(email, password)
       .then((userData) => {
@@ -184,12 +188,14 @@ function App() {
 
           <RegisterModal
             handleRegistration={handleRegistration}
-            isOpen={activeModal === "signup"}
+            // isOpen={activeModal === "signup"}
+            isOpen={true}
             closeModal={closeModal}
           />
           <LoginModal
             handleLogin={handleLogin}
-            isOpen={true}
+            // isOpen={activeModal === "login"} need uncomment after setting up login
+            // isOpen={true} //remove once CSS complete
             closeModal={closeModal}
           />
         </CurrentTemperatureUnitContext.Provider>
