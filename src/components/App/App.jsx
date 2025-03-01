@@ -62,7 +62,7 @@ function App() {
 
   const handleLogin = ({ email, password }) => {
     auth
-      .authorize(email, password)
+      .login(email, password)
       .then((userData) => {
         localStorage.setItem("jwt", userData.token);
       })
@@ -180,6 +180,17 @@ function App() {
             item={selectedCard}
             closeModal={closeModal}
             onDeleteItem={onDeleteItem}
+          />
+
+          <RegisterModal
+            handleRegistration={handleRegistration}
+            isOpen={activeModal === "signup"}
+            closeModal={closeModal}
+          />
+          <LoginModal
+            handleLogin={handleLogin}
+            isOpen={true}
+            closeModal={closeModal}
           />
         </CurrentTemperatureUnitContext.Provider>
       </div>

@@ -28,7 +28,7 @@ const RegisterModal = ({ isOpen, closeModal }) => {
     <ModalWithForm
       title="Register"
       buttonText={"Sign Up"}
-      isOpen={handleChange}
+      // isOpen={handleChange}
       onSubmit={handleSubmit}
     >
       <label htmlFor="email" className="modal__label">
