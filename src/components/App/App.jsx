@@ -29,6 +29,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
