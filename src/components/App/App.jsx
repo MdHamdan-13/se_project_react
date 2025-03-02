@@ -12,6 +12,7 @@ import { coordinates, APIkey } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 
@@ -46,6 +47,16 @@ function App() {
 
   const handleRegisterClick = () => {
     setActiveModal("signup");
+  };
+
+  const handleLoginLinkClick = (RegisterModal) => {
+    closeModal();
+    setActiveModal(RegisterModal);
+  };
+
+  const handleSignUpLinkClick = (LoginModal) => {
+    closeModal();
+    setActiveModal(LoginModal);
   };
 
   const handleToggleSwitchChange = () => {
@@ -183,6 +194,9 @@ function App() {
 
             <Footer />
           </div>
+
+          {/* <ModalWithForm handleLoginLinkClick={handleLoginLinkClick} /> */}
+
           <AddItemModal
             isOpen={activeModal === "add-garment"}
             closeModal={closeModal}
@@ -198,14 +212,14 @@ function App() {
 
           <RegisterModal
             handleRegistration={handleRegistration}
+            handleSignUpLinkClick={handleSignUpLinkClick}
             isOpen={activeModal === "signup"}
-            // isOpen={true}
             closeModal={closeModal}
           />
           <LoginModal
             handleLogin={handleLogin}
+            handleLoginLinkClick={handleLoginLinkClick}
             isOpen={activeModal === "login"}
-            // isOpen={true} //remove once CSS complete
             closeModal={closeModal}
           />
         </CurrentTemperatureUnitContext.Provider>

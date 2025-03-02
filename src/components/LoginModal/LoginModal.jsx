@@ -2,7 +2,12 @@ import "./LoginModal.css";
 import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ handleLogin, isOpen, closeModal }) => {
+const LoginModal = ({
+  handleLoginLinkClick,
+  handleLogin,
+  isOpen,
+  closeModal,
+}) => {
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -40,6 +45,10 @@ const LoginModal = ({ handleLogin, isOpen, closeModal }) => {
       isOpen={isOpen}
       onSubmit={handleSubmit}
       closeModal={closeModal}
+      hasLink={true}
+      linkContent="or Sign Up"
+      // linkHref="/signup"
+      onClick={handleLoginLinkClick}
     >
       <label htmlFor="email" className="modal__label">
         Email{" "}
