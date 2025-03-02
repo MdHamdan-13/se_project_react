@@ -61,11 +61,21 @@ function Header({
       ) : (
         <>
           {/* need to style the buttons */}
-          <button to="/signup" className="header__signup">
+          <button
+            // to="/signup"
+            type="button"
+            className="header__signup"
+            onClick={handleRegisterClick}
+          >
             Sign Up
           </button>
 
-          <button to="/login" className="header__login">
+          <button
+            // to="/login"
+            type="button"
+            className="header__login"
+            onClick={handleLoginClick}
+          >
             Log In
           </button>
         </>

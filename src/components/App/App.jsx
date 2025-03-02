@@ -45,7 +45,7 @@ function App() {
   };
 
   const handleRegisterClick = () => {
-    setActiveModal("register");
+    setActiveModal("signup");
   };
 
   const handleToggleSwitchChange = () => {
@@ -198,13 +198,13 @@ function App() {
 
           <RegisterModal
             handleRegistration={handleRegistration}
-            // isOpen={activeModal === "signup"}
-            isOpen={true}
+            isOpen={activeModal === "signup"}
+            // isOpen={true}
             closeModal={closeModal}
           />
           <LoginModal
             handleLogin={handleLogin}
-            // isOpen={activeModal === "login"} need uncomment after setting up login
+            isOpen={activeModal === "login"}
             // isOpen={true} //remove once CSS complete
             closeModal={closeModal}
           />
