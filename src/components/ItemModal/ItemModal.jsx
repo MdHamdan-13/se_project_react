@@ -4,9 +4,11 @@ function ItemModal({ activeModal, item, closeModal, onDeleteItem }) {
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">
-        <button onClick={closeModal} type="button" className="modal__close">
-          {/* Close */}
-        </button>
+        <button
+          onClick={closeModal}
+          type="button"
+          className="modal__close"
+        ></button>
         <img src={item.imageUrl} alt={item.name} className="modal__image" />
         <div className="modal__context">
           <h2 className="modal__caption">{item.name}</h2>

@@ -22,14 +22,18 @@ function ModalWithForm({
           type="button"
           className="modal__close"
         ></button>
-        <form className="modal__form" onSubmit={onSubmit}>
+        <form className="modal__form" onSubmit={onSubmit} noValidate>
           {children}
           <div>
             <button className="modal__submit" type="submit">
               {buttonText}
             </button>
             {hasLink && (
-              <button onClick={onClick} className="modal__secondary-btn">
+              <button
+                type="button"
+                onClick={onClick}
+                className="modal__secondary-btn"
+              >
                 {linkContent}
               </button>
             )}
