@@ -13,7 +13,8 @@ const register = (name, avatar, email, password) => {
 };
 
 const login = (email, password) => {
-  return fetch(`${BASE_URL}/login`, {
+  return fetch(`${BASE_URL}/signin`, {
+    //changed login to signin
     method: "POST",
     headers: {
       "Content-Type": "application/json",

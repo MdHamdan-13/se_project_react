@@ -65,12 +65,26 @@ function App() {
   };
 
   //SIGNUP & SIGNIN
+
+  const handleGetUserInfo = () => {
+    const token = localStorage.getItem("jwt");
+
+    auth
+      .checkToken(token)
+      .then((userData) => {
+        setCurrentUser(userData);
+        setIsLoggedIn(true);
+      })
+      .catch((error) => console.log(error));
+  };
+
   const handleRegistration = ({ name, avatar, email, password }) => {
     auth
       .register(name, avatar, email, password)
       .then((userData) => {
         if (userData) {
-          setIsLoggedIn(true);
+          // setIsLoggedIn(true);
+          handleLogin({ email, password });
           closeModal();
         } else {
           console.error("Registration failed");
@@ -88,6 +102,8 @@ function App() {
       .login(email, password)
       .then((userData) => {
         localStorage.setItem("jwt", userData.token);
+        handleGetUserInfo();
+        closeModal();
       })
       .catch((error) => console.log(error));
   };

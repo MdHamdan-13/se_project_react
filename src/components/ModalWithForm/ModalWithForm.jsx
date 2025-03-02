@@ -10,7 +10,6 @@ function ModalWithForm({
   onSubmit,
   hasLink,
   linkContent,
-  linkHref,
   onClick,
 }) {
   return (
