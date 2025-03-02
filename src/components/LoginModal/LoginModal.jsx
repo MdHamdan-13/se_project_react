@@ -42,7 +42,7 @@ const LoginModal = ({ handleLogin, isOpen, closeModal }) => {
       closeModal={closeModal}
     >
       <label htmlFor="email" className="modal__label">
-        Email*{" "}
+        Email{" "}
         <input
           type="email"
           id="email"
@@ -56,7 +56,7 @@ const LoginModal = ({ handleLogin, isOpen, closeModal }) => {
       </label>
 
       <label htmlFor="password" className="modal__label">
-        Password*{" "}
+        Password{" "}
         <input
           type="password"
           id="password"

@@ -150,7 +150,7 @@ function App() {
             <Header
               handleAddClick={handleAddClick}
               handleLoginClick={handleLoginClick}
-              handleRegistrationClick={handleRegisterClick}
+              handleRegisterClick={handleRegisterClick}
               weatherData={weatherData}
               isLoggedIn={isLoggedIn}
             />

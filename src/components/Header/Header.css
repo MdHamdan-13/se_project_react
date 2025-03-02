@@ -28,6 +28,30 @@
   margin-left: 20px;
 }
 
+.header__signup {
+  margin-left: 20px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.header__login {
+  margin-left: 20px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.header__login:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.header__signup:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .header__user-container {
   display: flex;
   align-items: center;
