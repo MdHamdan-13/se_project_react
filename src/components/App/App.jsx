@@ -151,20 +151,21 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
-      auth
-        .checkToken(token)
-        .then((data) => {
-          console.log(data, "Success");
-          setIsLoggedIn(true);
-        })
-        .catch(() => {
-          console.error("Token verification failed");
-          setIsLoggedIn(false);
-          localStorage.removeItem("jwt");
-        });
-    }
+    // const token = localStorage.getItem("jwt");
+    // if (token) {
+    //   auth
+    //     .checkToken(token)
+    //     .then((data) => {
+    //       console.log(data, "Success");
+    //       setIsLoggedIn(true);
+    //     })
+    //     .catch(() => {
+    //       console.error("Token verification failed");
+    //       setIsLoggedIn(false);
+    //       localStorage.removeItem("jwt");
+    //     });
+    // }
+    handleGetUserInfo();
   }, []);
 
   return (
