@@ -9,7 +9,6 @@ function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
     (item) => item.owner === currentUser?._id
   );
 
-  console.log("Current User ID:", currentUser?._id);
   console.log("Clothing Items", clothingItems);
 
   return (
