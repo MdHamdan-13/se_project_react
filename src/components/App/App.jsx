@@ -8,13 +8,14 @@ import Footer from "../Footer/Footer";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../Profile/Profile";
+import SideBar from "../SideBar/SideBar";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, APIkey } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-// import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import RegisterModal from "../RegisterModal/RegisterModal";
-import LoginModal from "../LoginModal/LoginModal";
 
 import api from "../../utils/api";
 import * as auth from "../../utils/auth";
@@ -30,7 +31,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState(); //{ _id: "" }
+  const [currentUser, setCurrentUser] = useState();
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -49,12 +50,12 @@ function App() {
     setActiveModal("signup");
   };
 
-  const handleLoginLinkClick = (RegisterModal) => {
+  const handleLoginLinkClick = () => {
     closeModal();
     setActiveModal("signup");
   };
 
-  const handleSignUpLinkClick = (LoginModal) => {
+  const handleSignUpLinkClick = () => {
     closeModal();
     setActiveModal("login");
   };
@@ -103,6 +104,18 @@ function App() {
       .then((userData) => {
         localStorage.setItem("jwt", userData.token);
         handleGetUserInfo();
+        closeModal();
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const handleEditProfile = ({ name, avatar }) => {
+    const token = localStorage.getItem("jwt");
+    auth
+      .editProfile(name, avatar, token)
+      .then((userUpdate) => {
+        console.log(userUpdate);
+        setCurrentUser(userUpdate);
         closeModal();
       })
       .catch((error) => console.log(error));
@@ -212,8 +225,6 @@ function App() {
             <Footer />
           </div>
 
-          {/* <ModalWithForm handleLoginLinkClick={handleLoginLinkClick} /> */}
-
           <AddItemModal
             isOpen={activeModal === "add-garment"}
             closeModal={closeModal}
@@ -233,12 +244,16 @@ function App() {
             isOpen={activeModal === "signup"}
             closeModal={closeModal}
           />
+
           <LoginModal
             handleLogin={handleLogin}
             handleLoginLinkClick={handleLoginLinkClick}
             isOpen={activeModal === "login"}
             closeModal={closeModal}
           />
+          {/* need to able to click the button to open the modal */}
+          <EditProfileModal isOpen={true} />
+          <SideBar handleEditProfile={handleEditProfile} />
         </CurrentTemperatureUnitContext.Provider>
       </div>
     </CurrentUserContext.Provider>

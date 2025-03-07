@@ -1,4 +1,5 @@
 const BASE_URL = "http://localhost:3001";
+const getToken = () => localStorage.getItem("jwt");
 
 const register = (name, avatar, email, password) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -25,6 +26,20 @@ const login = (email, password) => {
   });
 };
 
+const editProfile = (name, avater) => {
+  const token = getToken();
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avater }),
+  }).then((res) => {
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  });
+};
+
 const checkToken = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
@@ -37,4 +52,4 @@ const checkToken = (token) => {
   });
 };
 
-export { register, login, checkToken };
+export { register, login, editProfile, checkToken };

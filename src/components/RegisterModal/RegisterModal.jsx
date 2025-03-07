@@ -15,7 +15,7 @@ const RegisterModal = ({
     avatar: "",
   });
 
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -9,8 +9,6 @@ function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
     (item) => item.owner === currentUser?._id
   );
 
-  console.log("Clothing Items", clothingItems);
-
   return (
     <div className="clothes-section">
       <div className="clothes-section__container">
