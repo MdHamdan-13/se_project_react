@@ -51,12 +51,12 @@ function App() {
 
   const handleLoginLinkClick = (RegisterModal) => {
     closeModal();
-    setActiveModal(RegisterModal);
+    setActiveModal("signup");
   };
 
   const handleSignUpLinkClick = (LoginModal) => {
     closeModal();
-    setActiveModal(LoginModal);
+    setActiveModal("login");
   };
 
   const handleToggleSwitchChange = () => {
