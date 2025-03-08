@@ -224,27 +224,23 @@ function App() {
 
             <Footer />
           </div>
-
           <AddItemModal
             isOpen={activeModal === "add-garment"}
             closeModal={closeModal}
             onAddItem={onAddItem}
           />
-
           <ItemModal
             activeModal={activeModal}
             item={selectedCard}
             closeModal={closeModal}
             onDeleteItem={onDeleteItem}
           />
-
           <RegisterModal
             handleRegistration={handleRegistration}
             handleSignUpLinkClick={handleSignUpLinkClick}
             isOpen={activeModal === "signup"}
             closeModal={closeModal}
           />
-
           <LoginModal
             handleLogin={handleLogin}
             handleLoginLinkClick={handleLoginLinkClick}
@@ -252,7 +248,7 @@ function App() {
             closeModal={closeModal}
           />
           {/* need to able to click the button to open the modal */}
-          <EditProfileModal isOpen={true} />
+          <EditProfileModal /> {/*isOpen={true} */}
           <SideBar handleEditProfile={handleEditProfile} />
         </CurrentTemperatureUnitContext.Provider>
       </div>

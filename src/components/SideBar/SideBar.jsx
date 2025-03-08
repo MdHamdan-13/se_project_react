@@ -13,7 +13,7 @@ function SideBar() {
         alt={currentUser?.name}
         className="sidebar__image"
       />
-      <p className="sidebar__username">{currentUser.name}</p>
+      <p className="sidebar__username">{currentUser?.name}</p>
       <div className="sidebar__profile">
         {/* need to design the button */}
         <button type="button" className="sidebar__editprofile-btn">
