@@ -3,7 +3,7 @@ import "./SideBar.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
-function SideBar() {
+function SideBar({ handleProfileClick }) {
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -14,9 +14,14 @@ function SideBar() {
         className="sidebar__image"
       />
       <p className="sidebar__username">{currentUser?.name}</p>
+
       <div className="sidebar__profile">
         {/* need to design the button */}
-        <button type="button" className="sidebar__editprofile-btn">
+        <button
+          type="button"
+          onClick={handleProfileClick}
+          className="sidebar__editprofile-btn"
+        >
           Change profile data
         </button>
       </div>

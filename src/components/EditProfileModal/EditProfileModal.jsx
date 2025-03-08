@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
-const EditProfileModal = ({ isOpen, closeModal }) => {
+const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
   const currentUser = useContext(CurrentUserContext);
 
   const [profileData, setProfileData] = useState({
@@ -21,6 +21,7 @@ const EditProfileModal = ({ isOpen, closeModal }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleEditProfile();
   };
 
   return (

@@ -60,6 +60,10 @@ function App() {
     setActiveModal("login");
   };
 
+  const handleProfileClick = () => {
+    setActiveModal("change-profile-data");
+  };
+
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -214,6 +218,7 @@ function App() {
                       handleCardClick={handleCardClick}
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
+                      handleProfileClick={handleProfileClick}
                     />
                   ) : (
                     <Navigate to="/" replace />
@@ -248,8 +253,11 @@ function App() {
             closeModal={closeModal}
           />
           {/* need to able to click the button to open the modal */}
-          <EditProfileModal /> {/*isOpen={true} */}
-          <SideBar handleEditProfile={handleEditProfile} />
+          <EditProfileModal
+            handleEditProfile={handleEditProfile}
+            isOpen={activeModal === "change-profile-data"}
+            closeModal={closeModal}
+          />
         </CurrentTemperatureUnitContext.Provider>
       </div>
     </CurrentUserContext.Provider>
