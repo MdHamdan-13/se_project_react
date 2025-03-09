@@ -125,6 +125,28 @@ function App() {
       .catch((error) => console.log(error));
   };
 
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+
+    !isLiked
+      ? api
+          .addCardLike(id, token)
+          .then((cardUpdate) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? cardUpdate : item))
+            );
+          })
+          .catch((error) => console.log(error))
+      : api
+          .removeCardLike(id, token)
+          .then((cardUpdate) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id ? cardUpdate : item))
+            );
+          })
+          .catch((error) => console.log(error));
+  };
+
   const closeModal = () => {
     setActiveModal("");
   };
@@ -168,20 +190,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // const token = localStorage.getItem("jwt");
-    // if (token) {
-    //   auth
-    //     .checkToken(token)
-    //     .then((data) => {
-    //       console.log(data, "Success");
-    //       setIsLoggedIn(true);
-    //     })
-    //     .catch(() => {
-    //       console.error("Token verification failed");
-    //       setIsLoggedIn(false);
-    //       localStorage.removeItem("jwt");
-    //     });
-    // }
     handleGetUserInfo();
   }, []);
 
@@ -207,6 +215,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
                   />
                 }
               />
