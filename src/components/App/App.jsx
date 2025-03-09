@@ -215,7 +215,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    handleCardlike={handleCardLike}
+                    onCardLike={handleCardLike}
                   />
                 }
               />
@@ -228,6 +228,7 @@ function App() {
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
                       handleProfileClick={handleProfileClick}
+                      onCardLike={handleCardLike}
                     />
                   ) : (
                     <Navigate to="/" replace />

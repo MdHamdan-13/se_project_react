@@ -5,7 +5,7 @@ import { useContext } from "react";
 function ItemCard({ item, onCardClick, onCardLike }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const isLiked = item.likes.some((_id) => _id === currentUser._id);
+  const isLiked = item.likes.some((id) => id === currentUser._id);
   // const itemLikeButtonClassName = `card__liked-btn ${
   //   isLiked ? "" : "card__like-btn"
   // }`;
@@ -21,18 +21,17 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   return (
     <li className="card">
       <h2 className="card__name">{item.name}</h2>
-      <div>
-        <img
-          onClick={handleCardClick}
-          className="card__image"
-          src={item.imageUrl}
-          alt={item.name}
-        />
-        <button
-          className={`card__like-btn ${isLiked ? "liked" : ""}`}
-          onClick={handleLike}
-        ></button>
-      </div>
+
+      <img
+        onClick={handleCardClick}
+        className="card__image"
+        src={item.imageUrl}
+        alt={item.name}
+      />
+      <button
+        className={`card__like-btn ${isLiked ? "liked" : ""}`}
+        onClick={handleLike}
+      ></button>
     </li>
   );
 }
