@@ -1,4 +1,4 @@
-import avatar from "../../assets/avatar.png";
+import Avatar from "../Avatar/Avatar";
 import "./SideBar.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
@@ -8,11 +8,13 @@ function SideBar({ handleProfileClick }) {
 
   return (
     <div className="sidebar">
-      <img
+      {/* <img
         src={currentUser?.avatar}
         alt={currentUser?.name}
         className="sidebar__image"
-      />
+      /> */}
+
+      <Avatar avatar={currentUser.avatar} name={currentUser.name} />
       <p className="sidebar__username">{currentUser?.name}</p>
 
       <div className="sidebar__profile">

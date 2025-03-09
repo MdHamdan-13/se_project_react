@@ -1,6 +1,6 @@
 import "./Header.css";
 import logo from "../../assets/header-logo.svg";
-import avatar from "../../assets/avatar.png";
+import Avatar from "../Avatar/Avatar";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwith";
 import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
@@ -30,8 +30,6 @@ function Header({
 
       <ToggleSwitch />
 
-      {/* add isLoggedIn to the profile */}
-
       {isLoggedIn ? (
         <>
           <button
@@ -43,26 +41,13 @@ function Header({
           </button>
           <Link to="/profile" className="header__link">
             <div className="header__user-container">
-              <p className="header__username">{currentUser?.name}</p>
-              {currentUser?.avatar ? (
-                <img
-                  src={currentUser?.avatar}
-                  alt={currentUser?.name}
-                  className="header__avatar"
-                />
-              ) : (
-                <div className="header__avatar-placeholder">
-                  {currentUser?.name.charAt(0).toUpperCase()}
-                </div>
-              )}
+              <Avatar avatar={currentUser.avatar} name={currentUser.name} />
             </div>
           </Link>
         </>
       ) : (
         <>
-          {/* need to fix the button pathways */}
           <button
-            // to="/signup"
             type="button"
             className="header__signup"
             onClick={handleRegisterClick}
@@ -71,7 +56,6 @@ function Header({
           </button>
 
           <button
-            // to="/login"
             type="button"
             className="header__login"
             onClick={handleLoginClick}
