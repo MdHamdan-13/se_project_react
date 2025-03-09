@@ -32,6 +32,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState();
+  const navigate = useNavigate();
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -111,6 +112,13 @@ function App() {
         closeModal();
       })
       .catch((error) => console.log(error));
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    setCurrentUser("");
+    navigate("/");
   };
 
   const handleEditProfile = ({ name, avatar }) => {
@@ -229,6 +237,7 @@ function App() {
                       handleAddClick={handleAddClick}
                       handleProfileClick={handleProfileClick}
                       onCardLike={handleCardLike}
+                      handleLogout={handleLogout}
                     />
                   ) : (
                     <Navigate to="/" replace />

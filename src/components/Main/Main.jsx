@@ -1,7 +1,6 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { useContext } from "react";
-// import { defaultClothingItems } from "../../utils/constants";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
@@ -20,7 +19,6 @@ function Main({ weatherData, handleCardClick, clothingItems, onCardLike }) {
         <ul className="cards__list">
           {clothingItems
             .filter((item) => {
-              //comment this to update CSS
               return item.weather === weatherData.type;
             })
             .map((item) => {

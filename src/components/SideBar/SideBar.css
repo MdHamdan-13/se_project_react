@@ -22,6 +22,11 @@
   align-items: center;
 }
 
+.sidebar__userinfo {
+  display: flex;
+  gap: 16px;
+}
+
 .sidebar__editprofile-btn {
   background: none;
   border: none;
