@@ -125,23 +125,23 @@ function App() {
       .catch((error) => console.log(error));
   };
 
-  const handleCardLike = ({ id, isLiked }) => {
+  const handleCardLike = ({ _id, isLiked }) => {
     const token = localStorage.getItem("jwt");
 
     !isLiked
       ? api
-          .addCardLike(id, token)
+          .addCardLike(_id, token)
           .then((cardUpdate) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id === id ? cardUpdate : item))
+              cards.map((item) => (item._id === _id ? cardUpdate : item))
             );
           })
           .catch((error) => console.log(error))
       : api
-          .removeCardLike(id, token)
+          .removeCardLike(_id, token)
           .then((cardUpdate) => {
             setClothingItems((cards) =>
-              cards.map((item) => (item._id ? cardUpdate : item))
+              cards.map((item) => (item._id === _id ? cardUpdate : item))
             );
           })
           .catch((error) => console.log(error));
@@ -215,7 +215,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
-                    onCardLike={handleCardLike}
+                    handleCardlike={handleCardLike}
                   />
                 }
               />

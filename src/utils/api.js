@@ -39,7 +39,7 @@ function deleteItems(id) {
 
 function addCardLike(id) {
   const token = getToken();
-  return fetch(`${baseUrl}/items/${id}likes`, {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
