@@ -8,23 +8,20 @@ function SideBar({ handleProfileClick }) {
 
   return (
     <div className="sidebar">
-      {/* <img
-        src={currentUser?.avatar}
-        alt={currentUser?.name}
-        className="sidebar__image"
-      /> */}
-
       <Avatar avatar={currentUser.avatar} name={currentUser.name} />
       <p className="sidebar__username">{currentUser?.name}</p>
 
       <div className="sidebar__profile">
-        {/* need to design the button */}
         <button
           type="button"
           onClick={handleProfileClick}
           className="sidebar__editprofile-btn"
         >
           Change profile data
+        </button>
+
+        <button className="sidebar__logout" type="button">
+          Log out
         </button>
       </div>
     </div>
