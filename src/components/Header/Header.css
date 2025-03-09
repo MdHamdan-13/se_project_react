@@ -75,6 +75,15 @@
   border-radius: 50%;
 }
 
+.header__avatar-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: rgba(0, 0, 0, 0.2);
+}
+
 .header__link {
   text-decoration: none;
   color: rgba(0, 0, 0, 1);

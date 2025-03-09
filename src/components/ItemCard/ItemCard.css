@@ -40,28 +40,16 @@
   background-repeat: no-repeat;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+  position: absolute;
+  top: 21px;
+  right: 85px;
 }
 
 .card__like-btn.liked {
   background-image: url(../../assets/Liked.svg);
-  /* background-color: transparent;
-  background-size: contain; */
-  background-repeat: no-repeat;
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-
-/* .card__liked-btn {
-  background-image: url(../../assets/Liked.svg);
-  width: 18px;
-  height: 15px;
-  border: none;
-  background-color: transparent;
-  background-size: contain;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-} */
 
 .cards__text {
   font-size: 20px;

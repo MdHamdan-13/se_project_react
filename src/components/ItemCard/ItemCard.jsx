@@ -15,7 +15,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
   };
 
   const handleLike = () => {
-    onCardLike(item);
+    onCardLike({ _id: item._id, isLiked });
   };
 
   return (
@@ -28,6 +28,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
         src={item.imageUrl}
         alt={item.name}
       />
+
       <button
         className={`card__like-btn ${isLiked ? "liked" : ""}`}
         onClick={handleLike}

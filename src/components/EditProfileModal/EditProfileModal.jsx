@@ -2,6 +2,7 @@ import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
+import "./EditProfileModal.css";
 
 const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
   const currentUser = useContext(CurrentUserContext);
@@ -13,7 +14,7 @@ const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setSignUpData((prevData) => ({
+    setProfileData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -21,7 +22,7 @@ const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleEditProfile();
+    handleEditProfile(profileData);
   };
 
   return (
