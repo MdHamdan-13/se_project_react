@@ -1,4 +1,3 @@
-import "./LoginModal.css";
 import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
@@ -13,8 +12,6 @@ const LoginModal = ({
     password: "",
   });
 
-  // const [error, setError] = useState("");
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLoginData((prevData) => ({
@@ -23,7 +20,6 @@ const LoginModal = ({
     }));
   };
 
-  // Need to call once a handleRegistration has been completed.
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin(loginData);
@@ -47,7 +43,6 @@ const LoginModal = ({
       closeModal={closeModal}
       hasLink={true}
       linkContent="or Sign Up"
-      // linkHref="/signup"
       onClick={handleLoginLinkClick}
     >
       <label htmlFor="email" className="modal__label">
