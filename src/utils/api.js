@@ -5,7 +5,7 @@ function checkResponse(res) {
   if (res.ok) {
     return res.json();
   }
-  Promise.reject(`Error: ${res.status}`);
+  return Promise.reject(`Error: ${res.status}`);
 }
 
 function request(url, options) {
@@ -13,7 +13,7 @@ function request(url, options) {
 }
 
 function getItems() {
-  return request(`${baseUrl}/items`).then(checkResponse);
+  return request(`${baseUrl}/items`);
 }
 
 function addItems(name, imageUrl, weather) {
@@ -29,7 +29,7 @@ function addItems(name, imageUrl, weather) {
       imageUrl,
       weather,
     }),
-  }).then(checkResponse);
+  });
 }
 
 function deleteItems(id) {
@@ -39,7 +39,7 @@ function deleteItems(id) {
     headers: {
       authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  });
 }
 
 function addCardLike(id) {
@@ -50,7 +50,7 @@ function addCardLike(id) {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  });
 }
 
 function removeCardLike(id) {
@@ -61,7 +61,7 @@ function removeCardLike(id) {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then(checkResponse);
+  });
 }
 
 const api = {
