@@ -9,6 +9,7 @@ function SideBar({ handleProfileClick, handleLogout }) {
   return (
     <div className="sidebar">
       <div className="sidebar__userinfo">
+        {/* added ? */}
         <Avatar avatar={currentUser.avatar} name={currentUser.name} />
         <p className="sidebar__username">{currentUser?.name}</p>
       </div>

@@ -23,6 +23,7 @@ function Avatar({ avatar, name }) {
         />
       ) : (
         <div className="avatar__placeholder">
+          {/* added ? */}
           {name.charAt(0).toUpperCase()}
         </div>
       )}
