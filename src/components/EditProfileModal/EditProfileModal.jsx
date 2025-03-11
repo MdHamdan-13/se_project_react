@@ -41,7 +41,7 @@ const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
           id="name"
           name="name"
           className="modal__input"
-          value={profileData.name}
+          value={profileData.name || ""}
           onChange={handleChange}
           placeholder="Name"
           required
@@ -55,7 +55,7 @@ const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
           id="avatar"
           name="avatar"
           className="modal__input"
-          value={profileData.avatar}
+          value={profileData.avatar || ""}
           onChange={handleChange}
           placeholder="Avatar URL"
         />
