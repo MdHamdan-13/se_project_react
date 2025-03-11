@@ -26,7 +26,7 @@ const login = (email, password) => {
   });
 };
 
-const editProfile = (name, avater) => {
+const editProfile = (name, avatar) => {
   const token = getToken();
   return fetch(`${BASE_URL}/users/me`, {
     method: "PATCH",
@@ -34,7 +34,7 @@ const editProfile = (name, avater) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, avater }),
+    body: JSON.stringify({ name, avatar }),
   }).then((res) => {
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   });
