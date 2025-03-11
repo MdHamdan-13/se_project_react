@@ -127,7 +127,7 @@ function App() {
       .editProfile(name, avatar, token)
       .then((userUpdate) => {
         // console.log(userUpdate);
-        setCurrentUser(userUpdate);
+        setCurrentUser(userUpdate.data);
         closeModal();
       })
       .catch((error) => console.log(error));
