@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { useContext } from "react";
 import "./EditProfileModal.css";
 
 const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
@@ -22,7 +21,7 @@ const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(profileData);
+    // console.log(profileData);
     handleEditProfile(profileData);
   };
 

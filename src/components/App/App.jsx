@@ -126,8 +126,7 @@ function App() {
     auth
       .editProfile(name, avatar, token)
       .then((userUpdate) => {
-        // console.log(userUpdate);
-        setCurrentUser(userUpdate.data);
+        setCurrentUser(userUpdate);
         closeModal();
       })
       .catch((error) => console.log(error));
@@ -239,6 +238,7 @@ function App() {
                       handleProfileClick={handleProfileClick}
                       onCardLike={handleCardLike}
                       handleLogout={handleLogout}
+                      isLoggedIn={isLoggedIn}
                     />
                   </ProtectedRoute>
                 }

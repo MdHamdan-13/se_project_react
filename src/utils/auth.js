@@ -27,6 +27,7 @@ const login = (email, password) => {
 };
 
 const editProfile = (name, avatar) => {
+  console.log(name, avatar);
   const token = getToken();
   return fetch(`${BASE_URL}/users/me`, {
     method: "PATCH",

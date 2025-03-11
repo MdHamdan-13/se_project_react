@@ -43,7 +43,7 @@ function Header({
             <div className="header__user-container">
               <p className="header__username">{currentUser?.name}</p>
               {/* added ? */}
-              <Avatar avatar={currentUser.avatar} name={currentUser.name} />
+              <Avatar avatar={currentUser?.avatar} name={currentUser?.name} />
             </div>
           </Link>
         </>
