@@ -22,6 +22,7 @@ const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(profileData);
     handleEditProfile(profileData);
   };
 
