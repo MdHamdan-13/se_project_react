@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:3001";
 const getToken = () => localStorage.getItem("jwt");
+import api from "./api";
 
 const register = (name, avatar, email, password) => {
   return fetch(`${BASE_URL}/signup`, {
@@ -8,9 +9,7 @@ const register = (name, avatar, email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(api.checkResponse);
 };
 
 const login = (email, password) => {
@@ -21,9 +20,7 @@ const login = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(api.checkResponse);
 };
 
 const editProfile = (name, avatar) => {
@@ -36,9 +33,7 @@ const editProfile = (name, avatar) => {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(api.checkResponse);
 };
 
 const checkToken = (token) => {
@@ -48,9 +43,7 @@ const checkToken = (token) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(api.checkResponse);
 };
 
 export { register, login, editProfile, checkToken };

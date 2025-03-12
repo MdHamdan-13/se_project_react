@@ -42,11 +42,11 @@ const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
       onSubmit={handleSubmit}
       closeModal={closeModal}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="name-2" className="modal__label">
         Name*{" "}
         <input
           type="text"
-          id="name"
+          id="name-2"
           name="name"
           className="modal__input"
           value={profileData.name || ""}
@@ -56,11 +56,11 @@ const EditProfileModal = ({ isOpen, closeModal, handleEditProfile }) => {
         />
       </label>
 
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="avatar-2" className="modal__label">
         Avatar URL*{" "}
         <input
           type="url"
-          id="avatar"
+          id="avatar-2"
           name="avatar"
           className="modal__input"
           value={profileData.avatar || ""}

@@ -53,11 +53,11 @@ const RegisterModal = ({
       // linkHref="/login"
       onClick={handleSignUpLinkClick}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="email-1" className="modal__label">
         Email*{" "}
         <input
           type="email"
-          id="email"
+          id="email-1"
           name="email"
           className="modal__input"
           value={signUpData.email}
@@ -67,11 +67,11 @@ const RegisterModal = ({
         />
       </label>
 
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="password-1" className="modal__label">
         Password*{" "}
         <input
           type="password"
-          id="password"
+          id="password-1"
           name="password"
           className="modal__input"
           value={signUpData.password}
@@ -81,11 +81,11 @@ const RegisterModal = ({
         />
       </label>
 
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="name-1" className="modal__label">
         Name*{" "}
         <input
           type="text"
-          id="name"
+          id="name-1"
           name="name"
           className="modal__input"
           value={signUpData.name}
@@ -95,11 +95,11 @@ const RegisterModal = ({
         />
       </label>
 
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="avatar-1" className="modal__label">
         Avatar URL*{" "}
         <input
           type="url"
-          id="avatar"
+          id="avatar-1"
           name="avatar"
           className="modal__input"
           value={signUpData.avatar}

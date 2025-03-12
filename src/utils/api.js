@@ -70,6 +70,7 @@ const api = {
   deleteItems,
   addCardLike,
   removeCardLike,
+  checkResponse,
 };
 
 export default api;

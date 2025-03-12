@@ -45,11 +45,11 @@ const LoginModal = ({
       linkContent="or Sign Up"
       onClick={handleLoginLinkClick}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="email-2" className="modal__label">
         Email{" "}
         <input
           type="email"
-          id="email"
+          id="email-2"
           name="email"
           className="modal__input"
           value={loginData.email}
@@ -59,11 +59,11 @@ const LoginModal = ({
         />
       </label>
 
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="password-2" className="modal__label">
         Password{" "}
         <input
           type="password"
-          id="password"
+          id="password-2"
           name="password"
           className="modal__input"
           value={loginData.password}
