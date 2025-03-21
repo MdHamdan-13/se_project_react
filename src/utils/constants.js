@@ -117,4 +117,11 @@ export const coordinates = {
   longitude: -97.003532,
 };
 
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://api.hamd-wtwr.crabdance.com"
+    : "http://localhost:3001";
+
+export default BASE_URL;
+
 export const APIkey = "70f279d218224a8f2b662f24f712e74a";

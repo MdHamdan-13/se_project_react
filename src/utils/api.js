@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3001";
+import BASE_URL from "./constants";
 const getToken = () => localStorage.getItem("jwt");
 
 function checkResponse(res) {
@@ -13,12 +13,12 @@ function request(url, options) {
 }
 
 function getItems() {
-  return request(`${baseUrl}/items`);
+  return request(`${BASE_URL}/items`);
 }
 
 function addItems(name, imageUrl, weather) {
   const token = getToken();
-  return request(`${baseUrl}/items`, {
+  return request(`${BASE_URL}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +34,7 @@ function addItems(name, imageUrl, weather) {
 
 function deleteItems(id) {
   const token = getToken();
-  return request(`${baseUrl}/items/${id}`, {
+  return request(`${BASE_URL}/items/${id}`, {
     method: "DELETE",
     headers: {
       authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ function deleteItems(id) {
 
 function addCardLike(id) {
   const token = getToken();
-  return request(`${baseUrl}/items/${id}/likes`, {
+  return request(`${BASE_URL}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -55,7 +55,7 @@ function addCardLike(id) {
 
 function removeCardLike(id) {
   const token = getToken();
-  return request(`${baseUrl}/items/${id}/likes`, {
+  return request(`${BASE_URL}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001";
+import BASE_URL from "./constants";
 const getToken = () => localStorage.getItem("jwt");
 import api from "./api";
 
